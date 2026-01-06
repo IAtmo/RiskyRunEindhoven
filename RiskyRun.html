@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Correctly scale on mobile devices -->
     <title>Apeldoorn Risky Run 04-05</title> <!-- Add title -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> <!-- Load the necessary styles for Leaflet.js -->
-    <link rel="stylesheet" href="stylesApeldoorn0405.css"> <!-- Load custom styles -->
+    <link rel="stylesheet" href="styles.css"> <!-- Load custom styles -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Load Leaflet.js (interactive mapping library) -->
     <script src="https://unpkg.com/proj4/dist/proj4.js"></script> <!-- Load Proj4.js (coordinate transformation library) -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- Load Axios (JS library for making HTML request, like fetching data from an API) -->
@@ -421,7 +421,7 @@
             renderer: L.canvas(),  // Provide the tiles as canvas instead of svg. This ensures the correct position of polygons when saving the map as image
             zoomControl: false,  // Remove the default zoom button
             zoomSnap: 0.1 // Enable more precise zoomlevel
-        }).setView([52.215, 5.951], 14.1);  // Initialises a Leaflet map using OpenStreetMap
+        }).setView([51.440, 5.474], 13.6);  // Initialises a Leaflet map using OpenStreetMap
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // Create placeholders that Leaflet replaces with the appropriate zoom level
             attribution: '&copy; OpenStreetMap contributors',    // Display credit to OpenStreetMap contributors
@@ -435,7 +435,7 @@
         // ---------------------------------------------------------------------------------------- //
         async function loadGeoData() {
             try {
-                const areasResponse = await axios.get('ApeldoornGebieden.json');  // Make an HTTP request to fetch the areas polygon information
+                const areasResponse = await axios.get('EindhovenGebieden.json');  // Make an HTTP request to fetch the areas polygon information
                 const areasData = areasResponse.data.features;  // Extract the features from the JSON response
 
                 const areaNamesList = document.getElementById('areaNamesListStyle');  // Initialise list with all names of the areas
