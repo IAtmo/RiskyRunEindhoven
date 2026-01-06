@@ -55,7 +55,17 @@
                     </tr>
                 </tbody>
             </table>
-        </div>    
+        </div>   
+        
+        <!-- Player tag display -->
+        <div id="playerTagDisplay">
+            <strong>Tikker:</strong>
+            <div id="playerTag-1" class="player-tag-display" style="display: none;">Team 1</div>
+            <div id="playerTag-2" class="player-tag-display" style="display: none;">Team 2</div>
+            <div id="playerTag-3" class="player-tag-display" style="display: none;">Team 3</div>
+            <div id="playerTag-4" class="player-tag-display" style="display: none;">Team 4</div>
+            <!-- <div>  -->
+        </div>
     </div>
 
     <!-- Player select menu -->
@@ -66,28 +76,28 @@
                 <input type="radio" name="player" value="name1" checked> <!-- Selection button initialisation. Start off being checked only for player 1 --> 
                 <div class="player_color_square" style="background-color: orange;"></div> <!-- Place small yellow square before the players name --> 
                 Team 1
-                <input type="checkbox" class="player-tag" id="player-tag-1">
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-1" onclick="togglePlayerTagDisplay(1)">
             </label>
             <label>
                 <input type="radio" name="player" value="name2"> <!-- Selection button initialisation. Start off being unchecked --> 
                 <div class="player_color_square" style="background-color: yellow;"></div> <!-- Place small green square before the players name --> 
                 Team 2
-                <input type="checkbox" class="player-tag" id="player-tag-2">
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-2" onclick="togglePlayerTagDisplay(2)">
             </label>
             <label>
                 <input type="radio" name="player" value="name3"> <!-- Selection button initialisation. Start off being unchecked --> 
                 <div class="player_color_square" style="background-color: blue;"></div> <!-- Place small blue square before the players name --> 
                 Team 3
-                <input type="checkbox" class="player-tag" id="player-tag-3">
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-3" onclick="togglePlayerTagDisplay(3)">
             </label>
             <label>
                 <input type="radio" name="player" value="name4"> <!-- Selection button initialisation. Start off being unchecked --> 
                 <div class="player_color_square" style="background-color: purple;"></div> <!-- Place small red square before the players name --> 
                 Team 4
-                <input type="checkbox" class="player-tag" id="player-tag-4">
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-4" onclick="togglePlayerTagDisplay(4)">
             </label>
         </div>
-    </div>    
+    </div>
 
     <!-- Toggle area points value selection menu -->    
     <div id="areaValueMenu">
@@ -795,12 +805,10 @@
 
         const playerOutlineVisibility = [false, false, false, false];
 
-        for (let i = 1; i <= 4; i++) {
-            const tagId = `player-tag-${i}`;
-            const squareId = `player_color_square_${i}`;
-
-            document.getElementById(tagId).addEventListener("click", () => {
-                toggleTagPerson(squareId, () => playerOutlineVisibility[i - 1], (val) => { playerOutlineVisibility[i - 1] = val; });
+        function togglePlayerTagDisplay(playerNumber) {
+            const playerTags = document.querySelectorAll('.player-tag-display');
+            playerTags.forEach((tag, index) => {
+                tag.style.display = (index + 1 === playerNumber) ? 'block' : 'none';
             });
         }
     </script>
