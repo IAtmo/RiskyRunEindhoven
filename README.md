@@ -1,7 +1,7 @@
 To run the HTML website:
 - Ensure that Python 3.x is installed in your IDE.
 - In the terminal of your IDE run: python3 -m http.server (or your own python version)
-- In your browser go to: http://localhost:8000/RisyRun.html (tested in Google Chrome)
+- In your browser go to: http://localhost:8000/RiskyRun.html (tested in Google Chrome)
 - Or: http-server and http://localhost:8080/RiskyRun.html
 
 Depending on the size of your screen, the layout might not properly work (don't hate, I'm doing this for fun). Putting your screen full screen might help (F11).
