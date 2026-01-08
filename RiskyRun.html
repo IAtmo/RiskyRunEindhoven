@@ -72,12 +72,12 @@
         <!-- Player tag display -->
         <div id="playerTagDisplay">
             <strong>Tikker:</strong>
-            <div id="playerTag-1" class="player-tag-display" style="display: none;">Team 1</div>
-            <div id="playerTag-2" class="player-tag-display" style="display: none;">Team 2</div>
-            <div id="playerTag-3" class="player-tag-display" style="display: none;">Team 3</div>
-            <div id="playerTag-4" class="player-tag-display" style="display: none;">Team 4</div>
-            <div id="playerTag-5" class="player-tag-display" style="display: none;">Team 5</div>
-            <div id="playerTag-6" class="player-tag-display" style="display: none;">Team 6</div>
+            <div id="playerTag-1" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: red;"></span> Team 1</div>
+            <div id="playerTag-2" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: orange;"></span> Team 2</div>
+            <div id="playerTag-3" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: yellow;"></span> Team 3</div>
+            <div id="playerTag-4" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: green;"></span> Team 4</div>
+            <div id="playerTag-5" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: blue;"></span> Team 5</div>
+            <div id="playerTag-6" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: purple;"></span> Team 6</div>
             <!-- <div>  -->
         </div>
     </div>
@@ -185,7 +185,7 @@
 
         function downloadCSV(scoreHistory, areaHistory, timeHistory, scores, score_filename = "score_history.csv", area_filename = "area_history.csv") {
             const names = Object.keys(scores);
-            const headerRow = ["Time", "12:15", ...timeHistory]; // Manually set starting time of the game
+            const headerRow = ["Time", "12:15:00", ...timeHistory]; // Manually set starting time of the game
 
             const transposedScoreHistoryIncomplete = scoreHistory[0].map((_, colIndex) => scoreHistory.map(row => row[colIndex])) // Transpose the scores matrix
             const transposedScoreHistory = transposedScoreHistoryIncomplete.map(row => [0, ...row]);
@@ -229,7 +229,7 @@
             areaHistory.push([...Object.values(claimedAreas)])
 
             const now = new Date();
-            timeHistory.push(now.toTimeString().slice(0, 5));
+            timeHistory.push(now.toTimeString().slice(0, 8));
         }
 
         // Upon clicking the save gamestate map image active this
@@ -828,8 +828,6 @@
         document.getElementById("toggleLocationMarkerButton").addEventListener("click", () => { 
             toggleVisibility(areaLocationMarkerlist, () => locationsVisible, (val) => { locationsVisible = val; });
         })
-
-        const playerOutlineVisibility = [false, false, false, false];
 
         function togglePlayerTagDisplay(playerNumber) {
             const playerTags = document.querySelectorAll('.player-tag-display');

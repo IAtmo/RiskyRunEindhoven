@@ -176,6 +176,22 @@ Scoreboard Menu Styles
     font-family: Arial, sans-serif;
     z-index: 1000;
 }
+/* Colored square inside the player tag display (separate from scoreboard/player select) */
+.player_tag_square {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+/* Ensure the tag display text and square are perfectly vertically aligned */
+.player-tag-display {
+    display: flex;
+    align-items: bottom;
+    gap: 8px;
+    line-height: 1;
+}
 /* Scoreboard content */
 #scoreboard td span {
     font-weight: bold;
@@ -232,14 +248,14 @@ Player Select Menu Styles
 input[type="radio"] {
     margin-right: 10px;
     position: relative;
-    top: -5px;
+    top: -3px;
     cursor: pointer;
 }
 
 /* Player select checkbox */
 .player-tag {
     position: relative;
-    top: -3px;
+    top: -1px;
     cursor: pointer;
   }
 
