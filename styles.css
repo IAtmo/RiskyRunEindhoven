@@ -17,6 +17,11 @@ h3, h4 {
     font-size: 16px;
 }
 
+/* Root-level CSS variables */
+:root {
+    --player-tag-wrap-threshold: 20; /* px — change this value to control when tags stack */
+}
+
 /* ------------------------------
 Toggle Buttons (Website controls and area label visibility toggles)
 ------------------------------ */
@@ -185,12 +190,37 @@ Scoreboard Menu Styles
     border-radius: 3px;
     vertical-align: middle;
 }
+
+/* Center the 'Tikker:' label horizontally inside the player tag display */
+#playerTagDisplay > strong {
+    display: block;
+    text-align: center;
+    margin: 0 0 8px 0;
+}
 /* Ensure the tag display text and square are perfectly vertically aligned */
 .player-tag-display {
     display: flex;
-    align-items: bottom;
+    align-items: center;
     gap: 8px;
     line-height: 1;
+}
+
+/* Player tag text (can be nudged with the variable --player-tag-text-offset) */
+.player_tag_text {
+    display: inline-block;
+    transform: translateY(var(--player-tag-text-offset, 0px));
+    line-height: 1;
+}
+
+/* Wrapped state: stack the square and text vertically */
+.player-tag-display.wrapped {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.player-tag-display.wrapped .player_tag_text {
+    display: block;
+    text-align: center;
 }
 /* Scoreboard content */
 #scoreboard td span {
