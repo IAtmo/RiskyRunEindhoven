@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eindhoven Risky Run</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/proj4/dist/proj4.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="screenshot-container">
+        <!-- Background map -->  
+        <div id="map"></div>
+
+        <!-- Scoreboard menu -->
+        <div id="scoreboard">
+            <h3>Scorebord</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Team</strong></th>
+                        <th><strong>Punten</strong></th>
+                        <th><strong>Gebieden</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_1' style="background-color: red;"></span> 
+                            Team 1</td>
+                        <td><span id="score_player_1">0</span></td>
+                        <td><span id="areas_claimed_player_1">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_2' style="background-color: orange;"></span> 
+                            Team 2</td>
+                        <td><span id="score_player_2">0</span></td>
+                        <td><span id="areas_claimed_player_2">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_3' style="background-color: yellow;"></span> 
+                            Team 3</td>
+                        <td><span id="score_player_3">0</span></td>
+                        <td><span id="areas_claimed_player_3">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_4' style="background-color: green;"></span> 
+                            Team 4</td>
+                        <td><span id="score_player_4">0</span></td>
+                        <td><span id="areas_claimed_player_4">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_5' style="background-color: blue;"></span> 
+                            Team 5</td>
+                        <td><span id="score_player_5">0</span></td>
+                        <td><span id="areas_claimed_player_5">0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="player_color_square" id='player_color_square_6' style="background-color: purple;"></span> 
+                            Team 6</td>
+                        <td><span id="score_player_6">0</span></td>
+                        <td><span id="areas_claimed_player_6">0</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>   
+        
+        <!-- Player tag display -->
+        <div id="playerTagDisplay">
+            <strong>Tikker:</strong>
+            <div id="playerTag-1" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: red;"></span> Team 1</div>
+            <div id="playerTag-2" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: orange;"></span> Team 2</div>
+            <div id="playerTag-3" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: yellow;"></span> Team 3</div>
+            <div id="playerTag-4" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: green;"></span> Team 4</div>
+            <div id="playerTag-5" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: blue;"></span> Team 5</div>
+            <div id="playerTag-6" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: purple;"></span> Team 6</div>
+        </div>
+    </div>
+
+    <!-- Player select menu -->
+    <div id="playerSelectMenu">
+        <h3 id="playerSelectHeader">Selecteer een team<span id="togglePlayerSelectButton"></span></h3>
+        <div id="playerSelectList">
+            <label>
+                <input type="radio" name="player" value="name1" checked>
+                <div class="player_color_square" style="background-color: red;"></div>
+                Team 1
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-1" onclick="togglePlayerTagDisplay(1)">
+            </label>
+            <label>
+                <input type="radio" name="player" value="name2">
+                <div class="player_color_square" style="background-color: orange;"></div>
+                Team 2
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-2" onclick="togglePlayerTagDisplay(2)">
+            </label>
+            <label>
+                <input type="radio" name="player" value="name3">
+                <div class="player_color_square" style="background-color: yellow;"></div>
+                Team 3
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-3" onclick="togglePlayerTagDisplay(3)">
+            </label>
+            <label>
+                <input type="radio" name="player" value="name4">
+                <div class="player_color_square" style="background-color: green;"></div>
+                Team 4
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-4" onclick="togglePlayerTagDisplay(4)">
+            </label>
+            <label>
+                <input type="radio" name="player" value="name5">
+                <div class="player_color_square" style="background-color: blue;"></div>
+                Team 5
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-5" onclick="togglePlayerTagDisplay(5)">
+            </label>
+            <label>
+                <input type="radio" name="player" value="name6">
+                <div class="player_color_square" style="background-color: purple;"></div>
+                Team 6
+                <input type="radio" name="player-tag" class="player-tag" id="player-tag-6" onclick="togglePlayerTagDisplay(6)">
+            </label>
+        </div>
+    </div>
+
+    <!-- Toggle area points value selection menu -->    
+    <div id="areaValueMenu">
+        <h4 id="areaNamesListHeader">Puntenwaarde gebieden (#)<span id="toggleValueButton"></span></h4>
+        <ul id="areaNamesListStyle"></ul>
+    </div>
+    
+    <!-- Toggle location marker visibilty menu -->   
+    <div id="toggleLocationMarker">
+        <label><input type="checkbox" id="toggleLocationMarkerButton">Laat challenge locatie markers zien</label>
+    </div>
+
+    <!-- Toggle area points values visibilty menu -->   
+    <div id="togglePointsValue">
+        <label><input type="checkbox" id="togglePointsValueButton">Laat punten waarde labels zien</label>
+    </div>
+    
+    <!-- Toggle area number label visibilty menu -->   
+    <div id="toggleAreaLabel">
+        <label><input type="checkbox" id="toggleAreaLabelButton">Laat gebied nummer labels zien</label>
+    </div>
+
+    <!-- Toggle website controls menu -->    
+    <div id="websiteControls">
+        <label><input type="checkbox" id="disablewebsiteControls" checked>Zet website beweging uit</label>
+    </div>
+
+    <!-- Button to save the map as an image -->
+    <button id="saveMapImage">Sla spelstatus op als afbeeldingen</button>
+
+    <!-- Button to save scores and areas claimed as csv -->
+    <button id="saveScoresAndAreasClaimed">Sla scores en gebieden op als CSV</button>
+
+    <!-- Load main application -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
