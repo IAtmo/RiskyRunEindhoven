@@ -869,8 +869,8 @@
                 "gebiednummer": 18,
                 "Shape_Length": 2466.4419974344132,
                 "Shape_Area": 221463.1709506615,
-                "ChallengeLocatieX": 5.4785192829999998,
-                "ChallengeLocatieY": 51.441768009999997
+                "ChallengeLocatieX": 5.480442311,
+                "ChallengeLocatieY": 51.444150190000002
             },
             "geometry": {
                 "rings": [
@@ -1348,8 +1348,8 @@
                 "gebiednummer": 7,
                 "Shape_Length": 2194.853085779991,
                 "Shape_Area": 276395.54608563002,
-                "ChallengeLocatieX": 5.4902483289999999,
-                "ChallengeLocatieY": 51.43677323
+                "ChallengeLocatieX": 5.4901514660000004,
+                "ChallengeLocatieY": 51.43669251
             },
             "geometry": {
                 "rings": [
@@ -1618,8 +1618,8 @@
                 "gebiednummer": 24,
                 "Shape_Length": 2743.2983798594742,
                 "Shape_Area": 318752.04068922577,
-                "ChallengeLocatieX": 5.4755095090000001,
-                "ChallengeLocatieY": 51.437230970000002
+                "ChallengeLocatieX": 5.4902289590000004,
+                "ChallengeLocatieY": 51.458491350000003
             },
             "geometry": {
                 "rings": [
@@ -1888,8 +1888,8 @@
                 "gebiednummer": 8,
                 "Shape_Length": 2703.4798427880005,
                 "Shape_Area": 400669.93959511019,
-                "ChallengeLocatieX": 5.4712509000000003,
-                "ChallengeLocatieY": 51.439847100000001
+                "ChallengeLocatieX": 5.5041844729999996,
+                "ChallengeLocatieY": 51.433340100000002
             },
             "geometry": {
                 "rings": [
@@ -2500,8 +2500,8 @@
                 "gebiednummer": 16,
                 "Shape_Length": 2222.0999626643184,
                 "Shape_Area": 298310.55933021824,
-                "ChallengeLocatieX": 5.4597067319999999,
-                "ChallengeLocatieY": 51.446497389999998
+                "ChallengeLocatieX": 5.4578779419999996,
+                "ChallengeLocatieY": 51.44793292
             },
             "geometry": {
                 "rings": [
