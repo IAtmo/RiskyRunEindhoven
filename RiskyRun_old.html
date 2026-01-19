@@ -49,19 +49,19 @@
                     </tr>
                     <tr>
                         <td><span class="player_color_square" id='player_color_square_4' style="background-color: green;"></span> <!-- Small red square before the name of player 4 --> 
-                            Team 4</td> <!-- Player 4 name -->
+                            Team Kerk Gang</td> <!-- Player 4 name -->
                         <td><span id="score_player_4">0</span></td> <!-- Score counter player 4 initialisation --> 
                         <td><span id="areas_claimed_player_4">0</span></td> <!-- Claimed areas counter player 4 initialisation --> 
                     </tr>
                     <tr>
-                        <td><span class="player_color_square" id='player_color_square_5' style="background-color: blue;"></span> <!-- Small red square before the name of player 5 --> 
-                            Team 5</td> <!-- Player 5 name -->
+                        <td><span class="player_color_square" id='player_color_square_5' style="background-color: #b00b69;"></span> <!-- Small red square before the name of player 5 --> 
+                            Team Jelke/Thijs</td> <!-- Player 5 name -->
                         <td><span id="score_player_5">0</span></td> <!-- Score counter player 5 initialisation --> 
                         <td><span id="areas_claimed_player_5">0</span></td> <!-- Claimed areas counter player 5 initialisation --> 
                     </tr>
                     <tr>
                         <td><span class="player_color_square" id='player_color_square_6' style="background-color: purple;"></span> <!-- Small red square before the name of player 6 --> 
-                            Team 6</td> <!-- Player 6 name -->
+                            Team Platte pannenkoekje op konijn</td> <!-- Player 6 name -->
                         <td><span id="score_player_6">0</span></td> <!-- Score counter player 6 initialisation --> 
                         <td><span id="areas_claimed_player_6">0</span></td> <!-- Claimed areas counter player 6 initialisation --> 
                     </tr>
@@ -75,9 +75,9 @@
             <div id="playerTag-1" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: red;"></span> Team 1</div>
             <div id="playerTag-2" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: orange;"></span> Team 2</div>
             <div id="playerTag-3" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: yellow;"></span> Team 3</div>
-            <div id="playerTag-4" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: green;"></span> Team 4</div>
-            <div id="playerTag-5" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: blue;"></span> Team 5</div>
-            <div id="playerTag-6" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: purple;"></span> Team 6</div>
+            <div id="playerTag-4" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: green;"></span> Team Kerk Gang</div>
+            <div id="playerTag-5" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: #b00b69;"></span> Team Jelke/Thijs</div>
+            <div id="playerTag-6" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: purple;"></span> Team Platte pannenkoekje op konijn</div>
             <!-- <div>  -->
         </div>
     </div>
@@ -107,23 +107,23 @@
             <label>
                 <input type="radio" name="player" value="name4"> <!-- Selection button initialisation. Start off being unchecked --> 
                 <div class="player_color_square" style="background-color: green;"></div> <!-- Place small red square before the players name --> 
-                Team 4
+                Team Kerk Gang
                 <input type="radio" name="player-tag" class="player-tag" id="player-tag-4" onclick="togglePlayerTagDisplay(4)">
             </label>
             <label>
                 <input type="radio" name="player" value="name5"> <!-- Selection button initialisation. Start off being unchecked --> 
-                <div class="player_color_square" style="background-color: blue;"></div> <!-- Place small red square before the players name --> 
-                Team 5
+                <div class="player_color_square" style="background-color: #b00b69;"></div> <!-- Place small red square before the players name --> 
+                Team Jelke/Thijs    
                 <input type="radio" name="player-tag" class="player-tag" id="player-tag-5" onclick="togglePlayerTagDisplay(5)">
             </label>
             <label>
                 <input type="radio" name="player" value="name6"> <!-- Selection button initialisation. Start off being unchecked --> 
                 <div class="player_color_square" style="background-color: purple;"></div> <!-- Place small red square before the players name --> 
-                Team 6
+                Team Platte Pannenkoekje op konijn
                 <input type="radio" name="player-tag" class="player-tag" id="player-tag-6" onclick="togglePlayerTagDisplay(6)">
             </label>
         </div>
-    </div>
+    </div>  
 
     <!-- Toggle area points value selection menu -->    
     <div id="areaValueMenu">
@@ -333,7 +333,7 @@
 
         // Define lists containing information on the selected player, and player names and color
         const playerSelectionList = document.querySelectorAll('#playerSelectMenu input[type="radio"]');  // Create list with with the information of all players. Extracted from playerSelectMenu
-        const playerColorList = { name1: 'red', name2: 'orange', name3: 'yellow', name4: 'green', name5: 'blue', name6: 'purple'};  // Define object to link the players to colors 
+        const playerColorList = { name1: 'red', name2: 'orange', name3: 'yellow', name4: 'green', name5: '#b00b69', name6: 'purple'};  // Define object to link the players to colors 
 
         // Set the selected player('s color)
         let selectedPlayer = 'name1';  // Initialise player 1 as the selected player
