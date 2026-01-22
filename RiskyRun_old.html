@@ -31,7 +31,7 @@
                 <tbody> <!-- Scoreboard table content -->
                     <tr>
                         <td><span class="player_color_square" id='player_color_square_1' style="background-color: red;"></span> <!-- Small yellow square before the name of player 1 --> 
-                            Team 1</td> <!-- Player 1 name -->
+                            Team Portje</td> <!-- Player 1 name -->
                         <td><span id="score_player_1">0</span></td> <!-- Score counter player 1 initialisation --> 
                         <td><span id="areas_claimed_player_1">0</span></td> <!-- Claimed areas counter player 1 initialisation --> 
                     </tr>
@@ -72,7 +72,7 @@
         <!-- Player tag display -->
         <div id="playerTagDisplay">
             <strong>Tikker:</strong>
-            <div id="playerTag-1" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: red;"></span> Team 1</div>
+            <div id="playerTag-1" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: red;"></span> Team Portje</div>
             <div id="playerTag-2" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: orange;"></span> Team 2</div>
             <div id="playerTag-3" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: yellow;"></span> Team 3</div>
             <div id="playerTag-4" class="player-tag-display" style="display: none;"><span class="player_tag_square" style="background-color: green;"></span> Team Kerk Gang</div>
@@ -89,7 +89,7 @@
             <label>
                 <input type="radio" name="player" value="name1" checked> <!-- Selection button initialisation. Start off being checked only for player 1 --> 
                 <div class="player_color_square" style="background-color: red;"></div> <!-- Place small yellow square before the players name --> 
-                Team 1
+                Team Portje
                 <input type="radio" name="player-tag" class="player-tag" id="player-tag-1" onclick="togglePlayerTagDisplay(1)">
             </label>
             <label>
@@ -447,7 +447,7 @@
             renderer: L.canvas(),  // Provide the tiles as canvas instead of svg. This ensures the correct position of polygons when saving the map as image
             zoomControl: false,  // Remove the default zoom button
             zoomSnap: 0.1 // Enable more precise zoomlevel
-        }).setView([51.440, 5.474], 13.6);  // Initialises a Leaflet map using OpenStreetMap
+        }).setView([51.441, 5.474], 13.845);  // Initialises a Leaflet map using OpenStreetMap
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { // Create placeholders that Leaflet replaces with the appropriate zoom level
             attribution: '&copy; OpenStreetMap contributors',    // Display credit to OpenStreetMap contributors
@@ -538,20 +538,24 @@
 
                     // Define custom iconAnchors for area labels which are not correctly place by the default iconAnchor
                     const customAreaLabelAnchorList = {
-                        // 2: [70, -30],
-                        // 3: [70, -25],
-                        // 4: [105, -50],
-                        // 5: [70, -75],
-                        // 8: [92, -83],
-                        // 9: [60, -40],
-                        // 11: [143, -23],
-                        // 12: [70, -50],
-                        // 13: [90, -30],
-                        // 14: [95, -30],
-                        // 17: [60, -60],
-                        // 18: [90, -30],
-                        // 20: [60, -30],
-                        // 21: [100, -100]
+                        2: [90, -50],
+                        3: [70, -35],
+                        4: [80, -30],
+                        5: [65, -35],
+                        6: [85, -35],
+                        9: [80, -40],
+                        11: [75, -50],
+                        12: [75, -60],
+                        13: [90, -30],
+                        14: [70, -30],
+                        15: [80, -40],
+                        17: [70, -40],
+                        18: [90, -35],
+                        19: [70, -40],
+                        20: [70, -40],
+                        22: [100, -40],
+                        23: [80, -40],
+                        24: [110, -90],
                     };
 
                     // Set areaLabelAnchor to the defaultAreaLabelAnchor unless it is in customAreaLabelAnchorList
@@ -566,7 +570,7 @@
                         iconAnchor: areaLabelAnchor  // Set the icon anchor
                     });
 
-                     // Add the area label placeholder to the map
+                    // Add the area label placeholder to the map
                     const areaLabelMarker = L.marker(areaPolygon.getBounds().getNorthEast(), { icon: areaLabelPlaceholder }).addTo(map);
                     areaLabelList[areaName] = areaLabelMarker;  // Place the area number marker
 
@@ -576,23 +580,16 @@
 
                     // Define custom iconAnchors for points value labels which are not correctly place by the default iconAnchor
                     const customPointsValueLabel = {
-                        // 'Binnenstad Noord': [30, -20],
-                        // 'Binnenstad West': [5, -20],
-                        // 'Binnenstad Zuid': [2, 20],
-                        // 'Binnenstad Oost': [10, 5],
-                        // 'Brinkhorst Zuid': [20, -10],
-                        // 'Brummelhof Noord': [30, -15],
-                        // 'Brummelhof Oost': [30, 35],
-                        // 'Brummelhof Zuid': [40, -10],
-                        // 'De Haven': [15, -25],
-                        // 'De Heeze': [30, -10],
-                        // 'De Parken Noord': [35, 5],
-                        // 'De Parken Oost': [5, 32],
-                        // 'De Parken Zuid': [30, 25],
-                        // 'Holthuizen': [0, 30],
-                        // 'Sprengenweg Noord': [35, 20],
-                        // 'Sluisoord': [20, 40],
-                        // 'Station': [0, 10]
+                        'Gennep': [10, 30],
+                        'Irisbuurt': [10, 20],
+                        'Bergen Zuid': [0, 0],
+                        'Bergen Noord': [-5, 5],
+                        'Binnenstad Zuid': [0, -10],
+                        'Binnenstad Noord': [10, 20],
+                        'Villapark Zuid': [0, 30],
+                        'Stationsplein': [-10, -10],
+                        'TU Oost': [-10, 10],
+                        'TU West': [30, 0],
                     };
 
                     // Set pointsValueIconAnchor to the defaultPointsValueIconAnchor unless it is in customPointsValueLabel
