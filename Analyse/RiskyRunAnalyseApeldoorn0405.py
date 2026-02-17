@@ -55,7 +55,7 @@ tikker_periods = extract_tikker_periods(tikker_df)
 
 # Kleuren per speler
 def assign_colors(players):
-    colors = ['orange', 'yellow', 'blue', 'purple', 'grey']
+    colors = ['red', 'orange', 'beige', '#c0ffee', 'green', 'purple', 'grey']
     return {player: colors[i % len(colors)] for i, player in enumerate(players)}
 colors = assign_colors(players)
 
@@ -106,7 +106,7 @@ def plot_data(time_minutes, data, periods_dict, title, ylabel):
     plt.xticks(time_ticks, time_labels, rotation=45)
     plt.grid(axis='x', linestyle='--', alpha=0.5)
 
-    plt.savefig(f"Risky Run Apeldoorn 4 mei {title}.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"Risky Run Eindhoven 22 februari {title}.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 # Plotten van het spelverloop van de punten
