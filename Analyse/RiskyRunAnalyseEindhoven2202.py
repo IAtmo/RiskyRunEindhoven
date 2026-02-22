@@ -55,7 +55,7 @@ tikker_periods = extract_tikker_periods(tikker_df)
 
 # Kleuren per speler
 def assign_colors(players):
-    colors = ['red', 'orange', 'beige', '#c0ffee', 'green', 'purple', 'grey']
+    colors = ['red', 'orange', 'brown', 'cyan', 'green', 'purple', 'grey']
     return {player: colors[i % len(colors)] for i, player in enumerate(players)}
 colors = assign_colors(players)
 
